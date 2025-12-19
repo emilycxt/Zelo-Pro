@@ -12,8 +12,9 @@ public class DatabaseInitializer {
 		String[] tabelas = { """
 				CREATE TABLE IF NOT EXISTS usuarios (
 				    id INTEGER PRIMARY KEY AUTOINCREMENT,
-				    nome TEXT NOT NULL,
-				    email TEXT UNIQUE
+				    nome TEXT NOT NULL UNIQUE,
+				    senhaHash TEXT NOT NULL,
+				    role TEXT NOT NULL
 				);
 				""", """
 				CREATE TABLE IF NOT EXISTS clientes (
@@ -24,7 +25,7 @@ public class DatabaseInitializer {
 				    endereco TEXT,
 				    observacoes TEXT
 				);
-				"""
+				""",
 
 		};
 
