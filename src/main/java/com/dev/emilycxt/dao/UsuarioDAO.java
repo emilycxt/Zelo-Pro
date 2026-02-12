@@ -15,7 +15,7 @@ public class UsuarioDAO {
 
     /* Salva um novo usuário no banco */
     public void insert(Usuario usuario) {
-        // Atenção aos nomes das colunas no banco (sugestão: snake_case)
+        
         String sql = "INSERT INTO usuarios (nome, senha_hash, role) VALUES (?, ?, ?)";
 
         try (Connection conn = DataBaseConfig.getConnection();
@@ -55,7 +55,7 @@ public class UsuarioDAO {
                 
                 usuario.setId(rs.getLong("id"));
                 usuario.setNome(rs.getString("nome"));
-                usuario.setSenhaHash(rs.getString("senhaHash"));
+                usuario.setSenhaHash(rs.getString("senha_Hash"));
                 
                 // Convertendo String do banco de volta para ENUM
                 // Se o banco tiver "ADMIN", transforma em Role.ADMIN
